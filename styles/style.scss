@@ -1,0 +1,214 @@
+@import '../styles/variables';
+@import '../styles/breakpoint';
+
+@mixin displayFlex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    font-family: 'Lexend Deca', sans-serif;
+    font-size: 16px;
+    background-color: $very-dark-blue;
+
+    @include breakpoint(small-only) {
+
+        width: 100vw;
+        height: 100vh;
+        @include displayFlex();
+
+        main {
+            background-color: $dark-desaturated-blue;
+            width: 85%;
+            height: 90%;
+            border-radius: 0.5rem;
+            
+            .content-image {
+                width: 100%;
+                height: 30%;
+                background-image: url('../images/image-header-mobile.jpg');
+                background-color: #fefefe;
+                background-size: cover;
+                background-repeat: no-repeat;
+                border-top-left-radius: 0.5rem;
+                border-top-right-radius: 0.5rem;
+
+                .content-image-color {
+                    background-color: hsla(280, 86%, 28%, 0.603);
+                    width: 100%;
+                    height: 100%;
+                    border-top-right-radius: 0.5rem;
+                    border-bottom-right-radius: 0.5rem; 
+                }
+            }
+
+            .content-text {
+                width: 100%;
+                height: 70%;
+                padding: 2rem;
+
+                h1 {
+                    font-weight: 700;
+                    font-size: 1.7rem;
+                    text-align: center;
+                    font-family:'Inter', sans-serif ;
+                    color: $white;
+                    margin-bottom: 1rem;
+
+                    span {
+                        color: $soft-violet;
+                    }
+                }
+
+                p {
+                    color: $slightly-transparent-white;
+                    font-family: 'Inter', sans-serif;
+                    font-size: 0.9rem;
+                    text-align: center;
+                    line-height: 1.4rem;
+                    padding: 0 0.2rem;
+                }
+
+                .content-details {
+                    width: 100%;                    
+                    height: 50%;
+                    @include displayFlex();
+                    justify-content: space-between;
+                    margin: 1rem 0;
+
+                    .content-details-text {
+                        margin: 0.5rem;
+                        text-align: center;
+
+                        p {
+                            font-size: 1.4rem;
+                            font-weight: 700;
+                            font-family: 'Inter', sans-serif;
+                            color: $white;
+                            text-transform: uppercase;
+                            margin-bottom: 0.2rem;
+                        }
+
+                        span {
+                            text-transform: uppercase;
+                            color: $slightly-transparent-white;
+                            font-size: 0.7rem;
+                            font-family: 'Inter', sans-serif;
+                            letter-spacing: 1px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+    @include breakpoint(small-up) {
+        width: 100vw;
+        height: 100vh;
+        @include displayFlex();
+
+        main {
+            background-color: $dark-desaturated-blue;
+            width: 90%;
+            max-width: 900px;
+            min-height: 30%;
+            border-radius: 0.5rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr;
+            grid-template-areas: 'content image';
+
+            .content-image {
+                grid-area: image;
+                width: 100%;
+                height: 100%;
+                background-image: url('../images/image-header-desktop.jpg');
+                background-color: #fefefe;
+                background-size: cover;
+                background-repeat: no-repeat;
+                border-top-right-radius: 0.4rem;
+                border-bottom-right-radius: 0.4rem;
+
+                .content-image-color {
+                    background-color: hsla(280, 86%, 28%, 0.603);
+                    width: 100%;
+                    height: 100%;
+                    border-top-right-radius: 0.4rem;
+                    border-bottom-right-radius: 0.4rem; 
+                }
+            }
+
+            .content-text {
+                grid-area: content;
+                width: 100%;
+                height: 50%;
+                padding: 3rem 4rem;
+
+
+                h1 {
+                    font-weight: 700;
+                    font-size: 1.8rem;
+                    text-align: left;
+                    font-family:'Inter', sans-serif ;
+                    color: $white;
+                    margin-bottom: 1.5rem;
+
+                    span {
+                        color: $soft-violet;
+                    }
+                }
+
+                p {
+                    color: $slightly-transparent-white;
+                    font-family: 'Inter', sans-serif;
+                    font-size: 0.8rem;
+                    text-align: left;
+                    line-height: 1.4rem;
+                    margin-bottom: 3rem;
+                }
+
+                .content-details {
+                    width: 100%;                    
+                    height: 50%;
+                    @include displayFlex();
+                    justify-content: space-between;
+                    flex-direction: row;
+
+                    .content-details-text {
+                        text-align: center;
+
+                        p {
+                            font-size: 1.2rem;
+                            font-weight: 700;
+                            font-family: 'Inter', sans-serif;
+                            color: $white;
+                            text-transform: uppercase;
+                            margin-bottom: 0.2rem;
+                        }
+
+                        span {
+                            text-transform: uppercase;
+                            color: $slightly-transparent-white;
+                            font-size: 0.7rem;
+                            font-family: 'Inter', sans-serif;
+                            letter-spacing: 1px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
